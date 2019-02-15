@@ -16,4 +16,18 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  const action = req.body;
+  db.insert(action)
+    .then(item => {
+      console.log(item);
+      res.status(201).json(item);
+    })
+    .catch(() => {
+      res
+        .status(500)
+        .json({ error: 'Something went wrong. You need the required body' });
+    });
+});
+
 module.exports = router;
