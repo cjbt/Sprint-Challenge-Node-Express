@@ -26,13 +26,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+1. There are only three lines of code needed to make a server, import, declaration and server.listen.
+1. Express routing, separation of concern and making the file organization clean.
+1. There are 4 homies
+
 - [ ] Describe Middleware?
+
+1. Middlewares are generally a function that is run between other functions as a bypass. In Express, they are run based on order they are placed on the server. There are three types: built-in middlewares that comes with express, third party middleware that you install through a package manager, and a custom middleware that you can make on your own.
 
 - [ ] Describe a Resource?
 
+1. Everything is a resource in REST API. What you get back, what you insert, information that gets used.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+1. An API can return HTTP status codes and messages to tell clients whether a request was successful or not
+
 - [ ] How can we partition our application into sub-applications?
+
+1. We use express routers to split applications into sub-applications by calling the built in middleware express.Router()
 
 ## Project Setup
 
