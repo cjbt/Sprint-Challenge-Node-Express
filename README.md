@@ -26,8 +26,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
-1. There are only three lines of code needed to make a server, import, declaration and server.listen.
-1. Express routing, separation of concern and making the file organization clean.
+1. express.use which uses enables express to use middleware
+1. Express routing, separation of concern and making the file organization clean. express.Router
 1. There are 4 homies
 
 - [ ] Describe Middleware?
