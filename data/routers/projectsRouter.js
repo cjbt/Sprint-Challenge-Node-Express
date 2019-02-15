@@ -45,4 +45,23 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  const changes = req.body;
+  db.update(id, changes)
+    .then(updated => {
+      if (updated.updated === null) {
+        res
+          .status(404)
+          .json({ message: "Cannot find an ID you're looking for" });
+      } else {
+        console.log(updated);
+        res.status(200).json({ updated });
+      }
+    })
+    .catch(() => {
+      res.status(500).json({ message: 'Something went wrong.' });
+    });
+});
+
 module.exports = router;
