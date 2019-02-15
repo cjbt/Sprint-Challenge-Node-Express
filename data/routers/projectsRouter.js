@@ -33,4 +33,16 @@ router.get('/:projectId/actions', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  const project = req.body;
+  db.insert(project)
+    .then(item => {
+      console.log(item);
+      res.status(200).json(item);
+    })
+    .catch(() => {
+      res.status(400).json({ error: 'You need to add a name and description' });
+    });
+});
+
 module.exports = router;
