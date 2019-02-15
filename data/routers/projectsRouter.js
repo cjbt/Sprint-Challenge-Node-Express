@@ -56,11 +56,28 @@ router.put('/:id', (req, res) => {
           .json({ message: "Cannot find an ID you're looking for" });
       } else {
         console.log(updated);
-        res.status(200).json({ updated });
+        res.status(201).json({ updated });
       }
     })
     .catch(() => {
       res.status(500).json({ message: 'Something went wrong.' });
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  db.get(id)
+    .then(deleted => {
+      db.remove(id)
+        .then(() => {
+          res.status(200).json(deleted);
+        })
+        .catch(() => {
+          res.status(400).json({ error: 'Cannot be deleted for some reason' });
+        });
+    })
+    .catch(() => {
+      res.status(404).json({ message: "Cannot find an ID you're looking for" });
     });
 });
 
