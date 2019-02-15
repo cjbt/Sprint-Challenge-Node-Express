@@ -2,6 +2,17 @@ const express = require('express');
 const db = require('../helpers/projectModel');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  db.getAll()
+    .then(projects => {
+      console.log(projects);
+      res.status(200).json(projects);
+    })
+    .catch(() => {
+      res.status(500).json({ error: 'Something went completely wrong' });
+    });
+});
+
 router.get('/:id', (req, res) => {
   const id = req.params.id;
   db.get(id)

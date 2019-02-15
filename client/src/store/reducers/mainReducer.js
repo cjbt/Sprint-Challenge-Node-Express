@@ -1,17 +1,16 @@
 // import CONSTANT_VARIABLE from actions
-import { CHANGE_BUTTON_COLOR } from '../actions';
+import { GET_PROJECTS } from '../actions';
 
 const initialState = {
-  buttonColor: false,
-  buttonText: 'NOICE'
+  projects: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_BUTTON_COLOR:
+    case GET_PROJECTS:
       return {
         ...state,
-        buttonColor: !state.buttonColor
+        projects: action.payload
       };
     default:
       return state;
