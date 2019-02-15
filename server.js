@@ -15,4 +15,10 @@ server.use(cors());
 server.use('/api/projects', projectsRouter);
 server.use('/api/actions', actionsRouter);
 
+server.use(wrongRouteMiddleWare);
+
+function wrongRouteMiddleWare(req, res) {
+  res.status(500).json('<h1>YOU IN THE WRONG ROUTE MAN</h1>');
+}
+
 module.exports = server;
