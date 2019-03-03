@@ -26,13 +26,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+1. express.use which uses enables express to use middleware
+1. Express routing, separation of concern and making the file organization clean. express.Router
+1. There are 4 homies
+
 - [ ] Describe Middleware?
+
+1. Middlewares are generally a function that is run between other functions as a bypass. In Express, they are run based on order they are placed on the server. There are three types: built-in middlewares that comes with express, third party middleware that you install through a package manager, and a custom middleware that you can make on your own.
 
 - [ ] Describe a Resource?
 
+1. Everything is a resource in REST API. What you get back, what you insert, information that gets used.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+1. An API can return HTTP status codes and messages to tell clients whether a request was successful or not
+
 - [ ] How can we partition our application into sub-applications?
+
+1. We use express routers to split applications into sub-applications by calling the built in middleware express.Router()
 
 ## Project Setup
 
@@ -68,8 +80,6 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 ## Minimum Viable Product
 
-- [ ] Take the steps necessary to create a `package.json` to keep a record of all dependencies.
-- [ ] Use _yarn_ to add **knex** and **sqlite3** as dependencies to the project. **This is required for database access**.
 - [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
 - [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
 
@@ -78,11 +88,11 @@ Design and build the necessary endpoints to:
 - [ ] Perform CRUD operations on _projects_ and _actions_.
 - [ ] Retrieve the list of actions for a project.
 
-## Database Schemas
+### Database Schemas
 
 The _schemas_ (properties and data type of each property) used to store and retrieve the resources inside the included database (`lambda.sqlite3`) is described below.
 
-## Projects
+#### Projects
 
 | Field       | Data Type | Metadata                                                                    |
 | ----------- | --------- | --------------------------------------------------------------------------- |
@@ -91,7 +101,7 @@ The _schemas_ (properties and data type of each property) used to store and retr
 | description | string    | required.                                                                   |
 | completed   | boolean   | used to indicate if the project has been completed, not required            |
 
-## Actions
+### Actions
 
 | Field       | Data Type | Metadata                                                                                         |
 | ----------- | --------- | ------------------------------------------------------------------------------------------------ |

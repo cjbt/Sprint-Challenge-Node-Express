@@ -2,6 +2,9 @@ const db = require('../dbConfig.js');
 const mappers = require('./mappers');
 
 module.exports = {
+  getAll: function() {
+    return db('projects');
+  },
   get: function(id) {
     let query = db('projects as p');
 
@@ -42,5 +45,5 @@ module.exports = {
     return db('projects')
       .where('id', id)
       .del();
-  },
+  }
 };
